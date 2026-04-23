@@ -137,15 +137,6 @@ FROM Orders
 WHERE total_price > (
     SELECT AVG(total_price) FROM Orders
 );
-
--- 16
-SELECT DISTINCT u.user_name, u.user_phone
-FROM Users u
-JOIN Orders o ON u.user_id = o.user_id
-JOIN Order_Details od ON o.order_id = od.order_id
-JOIN Products p ON od.product_id = p.product_id
-WHERE p.product_name = 'Giày sneaker';
-
 -- 17
 SELECT o.order_id, u.user_name, p.product_name, od.quantity, od.unit_price
 FROM Order_Details od
